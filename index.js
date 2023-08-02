@@ -12,7 +12,7 @@ app.set("view engine", "ejs");
 app.use(express.static("public"));
 
 app.get("/", (req, res) => {
-  res.render("index", { videoUrl: null });
+  res.render("app", { videoUrl: null });
 });
 
 function getLinkedInPostId(url) {
@@ -49,7 +49,7 @@ app.get("/views", async (req, res) => {
     res.render("Download", { videoUrl: videoData, url: videoUrl });
   } catch (error) {
     console.error("Error:", error);
-    res.render("index", { videoUrl: null });
+    res.render("app", { videoUrl: null });
   }
 });
 
