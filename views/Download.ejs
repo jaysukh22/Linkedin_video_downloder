@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body style="text-align: center;background-color: #2c2c2c;">
+    <div >
+      <form action="/download" method="GET">
+        <input
+          type="text"
+          id="url"
+          name="videoUrl"
+          value="<%= url %>"
+          placeholder="Paste Linkedin Video Link Here"
+          required
+          style="
+            padding: 15px 15px;
+            border: 1px solid #004182;
+            background-color: #2c2c2c;
+            border-radius: 8px;
+            width: 70%;
+            color: #ffffff;
+            margin-right: 25px;
+            display: none;
+          "
+        />
+
+
+      <% if (videoUrl) { %>
+
+      <video
+        height="550px"
+        style="margin-top: 30px; border-radius: 8px"
+        controls autoplay
+      >
+        <source src="<%= videoUrl %>" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+
+      <% } %>
+    </div>
+
+    <button
+    type="submit"
+    style="
+      padding: 13px 25px;
+      border-radius: 8px;
+      font-size: 18px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-top: 20px;
+      font-family: sans-serif;
+      background-color: #004182;
+      border: 1px solid #004182;
+      /* background-color: #2a2a72; */
+      background-image: linear-gradient(315deg, #2a2a72 0%, #0b6092 74%);
+      cursor: pointer;
+    "
+  >
+    Download
+  </button>
+  
+  </form>
+  </body>
+  <button onclick="goBackAndReloadHomePage()" 
+  style="padding: 13px 25px;
+ border-radius: 8px;
+ font-size: 18px;
+ font-weight: 700;
+ color: #ffffff;
+ margin-top: 20px;
+ font-family: sans-serif;
+ background-color: #004182;
+ border: 1px solid #004182;
+ /* background-color: #2a2a72; */
+ background-image: linear-gradient(315deg, #2a2a72 0%, #0b6092 74%);
+ cursor: pointer;">Go Back</button>
+
+
+<script>
+  // Handle browser back button click
+  function goBackAndReloadHomePage() {
+  // First, go back to the previous page in the history
+  window.history.back();
+  
+  // After going back, check if the current page is the home page
+  if (window.location.pathname === '/') {
+    // If the current page is the home page, then reload it
+    window.location.reload();
+  } else {
+    // If the current page is not the home page, then navigate to the home page and reload it
+    window.location.href = '/';
+  }
+}
+
+</script>
+</html>
+
